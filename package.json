@@ -1,0 +1,50 @@
+{
+  "name": "mfa-nodejs",
+  "version": "1.0.0",
+  "description": "mfa with nodejs",
+  "main": "server.js",
+  "scripts": {
+    "start": "npm run start-db & node src/server",
+    "dev": "npm run start-db & npx nodemon src/server",
+    "start-db": "json-server --watch db.json",
+    "commit": "npx cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willaug/mfa-nodejs.git"
+  },
+  "keywords": [
+    "mfa",
+    "nodejs",
+    "mfa-nodejs",
+    "mfa-node",
+    "2fa",
+    "2fa-node"
+  ],
+  "author": "William Augusto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willaug/mfa-nodejs/issues"
+  },
+  "homepage": "https://github.com/willaug/mfa-nodejs#readme",
+  "devDependencies": {
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "nodemon": "^2.0.15"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "apollo-server": "^3.6.3",
+    "axios": "^0.26.0",
+    "graphql": "^16.3.0",
+    "json-server": "^0.17.0",
+    "otplib": "^12.0.1"
+  }
+}

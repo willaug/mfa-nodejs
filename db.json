@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "name": "William Augusto",
+      "mfaKey": null,
+      "createdAt": "2022-02-16T14:07:51.691Z",
+      "updatedAt": "2022-02-17T13:40:56.826Z"
+    }
+  ]
+}
