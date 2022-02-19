@@ -36,6 +36,10 @@ module.exports = {
         throw new ApolloError('account not found', 'ACCOUNT_NOT_FOUND');
       }
 
+      if (!account.mfaKey) {
+        throw new ApolloError('mfa not configured', 'MFA_NOT_CONFIGURED');
+      }
+
       const isValid = authenticator.check(token, account.mfaKey);
       if (!isValid) {
         throw new ApolloError('invalid mfa', 'INVALID_MFA');
