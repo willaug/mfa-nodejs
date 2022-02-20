@@ -2,6 +2,8 @@ const { authenticator } = require('otplib');
 const { ApolloError } = require('apollo-server');
 const axios = require('axios');
 
+const { encrypt, decrypt } = require('../core/crypto');
+
 axios.defaults.baseURL = 'http://localhost:3000/';
 
 module.exports = {
@@ -20,7 +22,7 @@ module.exports = {
       }
 
       await axios.patch(`accounts/${accountId}`, {
-        mfaKey: secretKey,
+        mfaKey: encrypt(secretKey),
         updatedAt: new Date().toISOString(),
       });
 
@@ -40,7 +42,7 @@ module.exports = {
         throw new ApolloError('mfa not configured', 'MFA_NOT_CONFIGURED');
       }
 
-      const isValid = authenticator.check(token, account.mfaKey);
+      const isValid = authenticator.check(token, decrypt(account.mfaKey));
       if (!isValid) {
         throw new ApolloError('invalid mfa', 'INVALID_MFA');
       }
