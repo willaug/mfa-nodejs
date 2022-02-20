@@ -4,10 +4,12 @@
   "description": "mfa with nodejs",
   "main": "server.js",
   "scripts": {
-    "lint-fix": "npx eslint . --fix",
-    "start": "npm run start-db & node src/server",
-    "dev": "npm run start-db & npx nodemon src/server",
-    "start-db": "json-server --watch db.json",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "start": "npm run seed:db && npm run start-db & node src/server",
+    "dev": "npm run seed:db && npm run start-db & npx nodemon src/server",
+    "seed:db": "node database/seed",
+    "start:db": "json-server --watch database/db.json",
     "commit": "npx cz",
     "test": "jest"
   },
