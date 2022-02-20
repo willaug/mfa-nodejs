@@ -6,12 +6,12 @@
   "scripts": {
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . --fix",
-    "start": "npm run seed:db && npm run start-db & node src/server",
-    "dev": "npm run seed:db && npm run start-db & npx nodemon src/server",
+    "start": " concurrently --r --kill-others \"npm run start:db\" \"node src/server\"",
+    "dev": " concurrently --r --kill-others \"npm run start:db\" \"npx nodemon src/server\"",
     "seed:db": "node database/seed",
-    "start:db": "json-server --watch database/db.json",
+    "start:db": "json-server --watch database/db.json --quiet",
     "commit": "npx cz",
-    "test": "jest"
+    "test": "npm run seed:db && concurrently --r --kill-others \"npm run start:db\" \"jest\""
   },
   "repository": {
     "type": "git",
@@ -38,8 +38,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
     "jest": "^27.5.1",
-    "nodemon": "^2.0.15",
-    "supertest": "^6.2.2"
+    "nodemon": "^2.0.15"
   },
   "config": {
     "commitizen": {
@@ -50,6 +49,7 @@
     "@graphql-tools/merge": "^8.2.2",
     "apollo-server": "^3.6.3",
     "axios": "^0.26.0",
+    "concurrently": "^7.0.0",
     "dotenv": "^16.0.0",
     "graphql": "^16.3.0",
     "json-server": "^0.17.0",

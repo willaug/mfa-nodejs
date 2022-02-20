@@ -3,9 +3,17 @@
     {
       "id": 1,
       "name": "William Augusto",
-      "mfaKey": null,
-      "createdAt": "2022-02-20T17:51:59.046Z",
-      "updatedAt": "2022-02-20T17:51:59.046Z"
+      "mfaKey": null
+    },
+    {
+      "id": 2,
+      "name": "John Doe",
+      "mfaKey": "21ff43e13bad16bab86e7233a19c365fd994ec5ed09335a49b034c7048a1580e:bff93ebcf0681067c622c456aead4f4d"
+    },
+    {
+      "id": 3,
+      "name": "John Doe",
+      "mfaKey": "4f3c052b3127c94477e46d0b3cfa859b22b9b2ca2c1d50bc65f96c0b4eb68699:888719afd94a9c380a0ace8f52b45e4d"
     }
   ]
 }

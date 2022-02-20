@@ -1,7 +1,10 @@
 module.exports = {
   coverageProvider: 'v8',
   coverageDirectory: 'coverage',
-  collectCoverageFrom: ['src/**/*.js*'],
+  collectCoverageFrom: [
+    'src/**/*.js*',
+    '!src/server.js',
+  ],
   collectCoverage: true,
-  verbose: true,
+  verbose: false,
 };

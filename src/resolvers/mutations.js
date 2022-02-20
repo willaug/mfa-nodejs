@@ -5,6 +5,7 @@ const axios = require('axios');
 const { encrypt, decrypt } = require('../core/crypto');
 
 axios.defaults.baseURL = 'http://localhost:3000/';
+axios.interceptors.response.use((res) => res, (err) => err);
 
 module.exports = {
   Mutation: {
@@ -21,9 +22,12 @@ module.exports = {
         throw new ApolloError('account not found', 'ACCOUNT_NOT_FOUND');
       }
 
+      if (account.mfaKey) {
+        throw new ApolloError('account already has mfa', 'ACCOUNT_ALREADY_HAS_MFA');
+      }
+
       await axios.patch(`accounts/${accountId}`, {
         mfaKey: encrypt(secretKey),
-        updatedAt: new Date().toISOString(),
       });
 
       return {

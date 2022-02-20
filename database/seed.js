@@ -6,8 +6,16 @@ const seed = async () => {
       id: 1,
       name: 'William Augusto',
       mfaKey: null,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
+    },
+    {
+      id: 2,
+      name: 'John Doe',
+      mfaKey: null,
+    },
+    {
+      id: 3,
+      name: 'John Doe',
+      mfaKey: '4f3c052b3127c94477e46d0b3cfa859b22b9b2ca2c1d50bc65f96c0b4eb68699:888719afd94a9c380a0ace8f52b45e4d',
     },
   ];
 

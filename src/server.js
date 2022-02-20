@@ -1,8 +1,5 @@
-const { ApolloServer } = require('apollo-server');
-const typeDefs = require('./schemas');
-const resolvers = require('./resolvers');
+const app = require('./app');
 
-const server = new ApolloServer({ typeDefs, resolvers });
-server.listen().then(({ url }) => {
+app.listen().then(({ url }) => {
   console.log(`🚀 API ready at ${url}`);
 });
